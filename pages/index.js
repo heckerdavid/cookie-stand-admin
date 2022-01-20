@@ -12,11 +12,11 @@ export default function Home() {
         <h1>Cookie Stand Admin</h1>
       </header>
 
-      <main>
+      <main className="flex-col content-around">
 
         <CookieStandInput />
-        <p className="pl-1">Report Table Coming Soon...</p>
-        <p> JSON maybe one day</p>
+        <p className="mx-20 pl-96 pb-2.5">Report Table Coming Soon...</p>
+        <p className="mx-20 pl-96"> JSON maybe one day</p>
 
       </main>
 
@@ -30,8 +30,8 @@ export default function Home() {
 function CookieStandInput() {
   return (
     <>
-    <form className="bg-violet-500 flex-col m-4 ">
-      <h1 className="px-80">Create Cookie Stand</h1>
+    <form className="bg-violet-500 flex-col mx-40 rounded-md my-5">
+      <h1 className="px-80 text-2xl pt-3 pb-2">Create Cookie Stand</h1>
       
       <div className="flex">
         <p className="p-5">Location</p>
@@ -45,7 +45,7 @@ function CookieStandInput() {
         <input type="text" className="flex-auto h-1/2" />
         <p className="p-5">Avg</p>
         <input type="text" className="flex-auto h-1/2" />
-        <button className="text-lg py-5 px-40 bg-violet-800">Create</button>
+        <button className="text-lg py-4 px-12 bg-violet-800 m-3 rounded">Create</button>
       </div>
 
     </form>
