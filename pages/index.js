@@ -2,9 +2,12 @@
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <head>
+        <title>Cookie Stand Admin</title>
+      </head>
       <h1>hello world</h1>
 
-    </div>
+    </>
   )
 }
