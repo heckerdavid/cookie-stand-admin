@@ -7,6 +7,10 @@ import ReportTable from "../components/ReportTable"
 
 export default function CookieStandAdmin() {
 
+  function handleCreate(location, min, max, avg) {
+    alert(location + min + max + avg)
+  }
+
   return (
     <>
       <Head>
@@ -17,7 +21,7 @@ export default function CookieStandAdmin() {
 
       <main className="flex-col content-around">
 
-        <CreateForm />
+        <CreateForm onCreate={handleCreate}/>
 
         <ReportTable />
 
