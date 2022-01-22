@@ -1,4 +1,3 @@
-// stupid = {"location": "Barcelona", "minCustomers":2, "maxCustomers":4, "avgCookies": 2.5}
 import Head from "next/head"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -13,7 +12,7 @@ export default function CookieStandAdmin() {
         <title>Cookie Stand Admin</title>
       </Head>
 
-    <Header />
+      <Header />
 
       <main className="flex-col content-around">
 
