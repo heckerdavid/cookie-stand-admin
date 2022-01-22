@@ -3,12 +3,26 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import CreateForm from "../components/CreateForm"
 import ReportTable from "../components/ReportTable"
-
+import { hours } from '../data'
+import { useState } from 'react'
 
 export default function CookieStandAdmin() {
 
+
+  const [storeList, setStoreList] = useState([])
+  
+
   function handleCreate(location, min, max, avg) {
-    alert(location + min + max + avg)
+    
+    const newStore = {
+      location,
+      min,
+      max,
+      avg,
+      id: storeList.length
+    }
+    alert(newStore.min)
+    setStoreList([...storeList, newStore])
   }
 
   return (
@@ -23,11 +37,11 @@ export default function CookieStandAdmin() {
 
         <CreateForm onCreate={handleCreate}/>
 
-        <ReportTable />
+        <ReportTable hours={hours} storeList={storeList}/>
 
       </main>
 
-      <Footer totalLocations={9}/>
+      <Footer totalLocations={storeList.length}/>
     </>
   )
 }
