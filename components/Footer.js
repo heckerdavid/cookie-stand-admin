@@ -1,7 +1,7 @@
-export default function Footer() {
+export default function Footer({totalLocations}) {
     return (
         <footer className=" bg-violet-500 mt-1 p-4">
-            <p>{0} Locations World Wide</p>
+            <p>{totalLocations} Locations World Wide</p>
         </footer>
   )
 }

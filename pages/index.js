@@ -6,6 +6,7 @@ import ReportTable from "../components/ReportTable"
 
 
 export default function CookieStandAdmin() {
+
   return (
     <>
       <Head>
@@ -22,7 +23,7 @@ export default function CookieStandAdmin() {
 
       </main>
 
-      <Footer />
+      <Footer totalLocations={9}/>
     </>
   )
 }
