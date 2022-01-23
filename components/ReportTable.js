@@ -4,7 +4,7 @@ export default function ReportTable({ hours, storeList }) {
         if (storeList.length === 0) {
             return <h1>No Current Stores</h1>
         } else {
-            return <h1>{storeList[0].location} </h1>
+            return <Table hours={hours} storeList={storeList} />
         }
     }
 
@@ -13,4 +13,31 @@ export default function ReportTable({ hours, storeList }) {
             {getStoreList()}
         </>
   )
+}
+
+function Table({hours, storeList}) {
+    return (
+        <table className="w-1/2 mx-auto border-4 border-collapse border-gray-500">
+        <thead>
+            <tr>
+                <th className="border border-black">Location</th>
+                {hours.map(hour => <th key={hour} className="border border-black">{hour}</th>)}
+                <th className="border border-black">Totals</th>
+            </tr>
+        </thead>
+        <tbody>
+            {storeList.map(store => (
+                <tr key={store.id}>
+                    <td className="pl-2 border border-black">{store.location}</td>
+                    {store.hourly_sales.map(sale => <td key={sale}className="pl-2 border border-black">{sale}</td>)}
+                    <td className="pl-2 border border-black">{store.hourly_sales.reduce((a,b) => a + b, 0)}</td>
+                </tr>
+            ))}
+            <tr>
+                <td>Totals</td>
+            
+            </tr>
+        </tbody>
+    </table>
+    )
 }
