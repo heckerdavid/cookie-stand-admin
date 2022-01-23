@@ -2,7 +2,7 @@ export default function ReportTable({ hours, storeList }) {
 
     function getStoreList() {
         if (storeList.length === 0) {
-            return <h1>No Current Stores</h1>
+            return <h2 className="flex mx-auto px-96">No Cookie Stands Available</h2>
         } else {
             return <Table hours={hours} storeList={storeList} />
         }
@@ -16,6 +16,7 @@ export default function ReportTable({ hours, storeList }) {
 }
 
 function Table({hours, storeList}) {
+
     return (
         <table className="w-1/2 mx-auto border-4 border-collapse border-gray-500">
         <thead>
@@ -35,7 +36,6 @@ function Table({hours, storeList}) {
             ))}
             <tr>
                 <td>Totals</td>
-            
             </tr>
         </tbody>
     </table>
