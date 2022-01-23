@@ -21,7 +21,7 @@ export default function CookieStandAdmin() {
       avg,
       id: storeList.length
     }
-    alert(newStore.min)
+
     setStoreList([...storeList, newStore])
   }
 
