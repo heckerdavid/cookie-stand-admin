@@ -28,10 +28,7 @@ export default function CookieStandAdmin() {
   
     return (
       <>
-        <Head>
-          <title>Cookie Stand Admin</title>
-        </Head>
-  
+
         <Header />
   
         <main className="flex-col content-around">
