@@ -1,11 +1,23 @@
-import { loadGetInitialProps } from "next/dist/shared/lib/utils";
+import useResource from '../hooks/useResource'
+import { useAuth } from '../contexts/auth'
+
 
 export default function CreateForm(props) {
+    const { user } = useAuth();
+    const { createResource } = useResource();
 
     function handleSubmit(event) {
       event.preventDefault();
 
-      props.onCreate(event.target.location.value, event.target.min.value, event.target.max.value, event.target.avg.value)
+      const stand = {
+        location: event.target.location.value,
+        minimum_customers_per_hour: parseInt(event.target.min.value),
+        maximum_customers_per_hour: parseInt(event.target.max.value),
+        average_cookies_per_sale: parseFloat(event.target.avg.value),
+        owner: user.id,
+      }
+      createResource(stand)
+      // props.onCreate(event.target.location.value, event.target.min.value, event.target.max.value, event.target.avg.value)
     }
 
     return (
