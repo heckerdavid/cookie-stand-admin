@@ -10,22 +10,9 @@ import CookieStandTable from '../components/CookieStandTable'
 export default function CookieStandAdmin({ user, logout }) {
 
     const { resources, deleteResource } = useResource();
-    const [storeList, setStoreList] = useState([]);
-    
-  
-    function handleCreate(location, min, max, avg) {
-      
-      const newStore = {
-        location,
-        min,
-        max,
-        avg,
-        hourly_sales: [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36],
-        id: storeList.length
-      }
-  
-      setStoreList([...storeList, newStore])
-    }
+
+
+    const standsCount = resources ? resources.length : 0;
   
     return (
       <>
@@ -34,14 +21,16 @@ export default function CookieStandAdmin({ user, logout }) {
   
         <main className="flex-col content-around">
   
-          <CreateForm user={user} onCreate={handleCreate}/>
+          <CreateForm user={user} />
+          <div className="my-8 border-violet-900 border-2 p-2 m-4 ml-24">
 
-          <CookieStandTable stands={resources || []} deleteStand={deleteResource} />
-          {/* <ReportTable stands = { resources || [] } deleteStand={deleteResource} hours={hours} storeList={storeList}/> */}
+          <CookieStandTable className="border-violet-900 border-2 p-20" stands={resources || []} deleteStand={deleteResource} />
+          </div>
+
   
         </main>
   
-        <Footer totalLocations={storeList.length}/>
+        <Footer totalLocations={standsCount}/>
       </>
     )
   }
