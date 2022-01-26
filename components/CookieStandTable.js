@@ -1,5 +1,5 @@
 import { delete_icon } from '../public/delete'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 
 export default function CookieStandTable({ stands, deleteStand, hours }) {
 
@@ -69,7 +69,7 @@ function CookieStandRow({ info, deleteStand }) {
     return (
         <tr className="border border-black">
 
-            <td className="border border-black pl-4">{info.location} <button className="pl-4" onClick={handleDelete}>{delete_icon}</button></td>
+            <td className="border border-black pl-4">{info.location} <button className="pl-4 text-red-600" onClick={handleDelete}>{delete_icon}DELETE</button></td>
 
             {info.hourly_sales.map((slot, index) => <td className="border border-black px-3" key={index}>{slot}</td>)}
 
