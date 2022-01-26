@@ -1,3 +1,9 @@
+# Deployed
+
+[Link to live site](https://cookie-stand-admin-nbd4lw3j6-heckerdavid.vercel.app/)
+
+## Standard info
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
