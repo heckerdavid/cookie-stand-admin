@@ -2,7 +2,7 @@ import axios from "axios"
 import Head from "next/head"
 import { useState } from "react"
 import CookieStandAdmin from "../components/CookieStandAdmin"
-import LoginForm from "../components/Loginform"
+import LoginForm from "../components/LoginForm"
 import { useAuth } from '../contexts/auth'
 
 
