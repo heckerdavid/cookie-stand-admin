@@ -28,9 +28,10 @@ export default function CreateForm(props) {
         <div className="flex px">
           <p className="p-5 my-auto pr-2">Location</p>
           <input type="text" className="my-auto h-1/2 w-full mr-5" name='location'/>
+          <button className="text-lg py-3 px-20 bg-violet-800 mr-10 ml-24 rounded">Create</button>
         </div>
   
-        <div className="flex py-4">
+        <div className="flex py-4 space-x-10">
   
           <div className="p-3">
             <p className="p-5 my-auto">Minimum Customers Per Hour</p>
@@ -47,7 +48,6 @@ export default function CreateForm(props) {
             <input type="text" className="flex-auto h-1/4 my-auto pl-4 ml-4" name="avg" />
           </div>
   
-          <button className="text-lg py-2 px-16 bg-violet-800 m-2 ml-24 rounded">Create</button>
   
         </div>
   
