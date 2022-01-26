@@ -1,26 +1,31 @@
 import { delete_icon } from '../public/delete'
+import { useState, useEffect } from 'react'
 
 export default function CookieStandTable({ stands, deleteStand, hours }) {
 
-    
+    // const [totals, setTotals] = useState([0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+
 
     function hourly_totals(stands) {
         
-        let totals = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        let totals_array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
         let totalsByHour = stands.map(stand => stand.hourly_sales) 
 
-        console.log(totalsByHour)
 
-        for (let i; i < totalsByHour.length; i++) {
-            current = totalsByHour[i]
-            for (let j; j < current.length; j++) {
-                    totals[j] = totals[j] + current[j]
-                }
+        for (let i = 0; i < totalsByHour.length; i++) {
+            let current = totalsByHour[i]
+
+            for (let j = 0; j < current.length; j++) {
+                    totals_array[j] += current[j]
             }
+        }
 
-        return totals
+        // setTotals(totals_array)
+        return totals_array
     }
+
+
 
     return (
         <table className="my-8 border-black p-2 bg-violet-300">
@@ -40,7 +45,7 @@ export default function CookieStandTable({ stands, deleteStand, hours }) {
                 <tr>
                     <th className="border border-black">Total</th>
 
-                    {hourly_totals(stands).map(hour => <th key={hour} className="border border-black px-2">{hour}</th>)}
+                    {hourly_totals(stands).map((hour, idx) => <th key={idx} className="border border-black px-2">{hour}</th>)}
 
                     <th className="border border-black">{hourly_totals(stands).reduce((a,b) => a + b,0)}</th>
                 </tr>
