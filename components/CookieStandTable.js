@@ -1,20 +1,50 @@
 import { delete_icon } from '../public/delete'
 
 export default function CookieStandTable({ stands, deleteStand, hours }) {
+
+    
+
+    function hourly_totals(stands) {
+        
+        let totals = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+        let totalsByHour = stands.map(stand => stand.hourly_sales) 
+
+        console.log(totalsByHour)
+
+        for (let i; i < totalsByHour.length; i++) {
+            current = totalsByHour[i]
+            for (let j; j < current.length; j++) {
+                    totals[j] = totals[j] + current[j]
+                }
+            }
+
+        return totals
+    }
+
     return (
         <table className="my-8 border-black p-2 bg-violet-300">
-        <thead>
-            <tr>
-                <th className="border border-black">Location</th>
-                {hours.map(hour => <th key={hour} className="border border-black px-2">{hour}</th>)}
-                <th className="border border-black px-2">Totals</th>
-            </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th className="border border-black">Location</th>
+                    {hours.map(hour => <th key={hour} className="border border-black px-2">{hour}</th>)}
+                    <th className="border border-black px-2">Totals</th>
+                </tr>
+            </thead>
             <tbody>
                 {stands.map(stand => (
                     <CookieStandRow  key={stand.id} info={stand} deleteStand={deleteStand} />
                 ))}
             </tbody>
+            <tfoot>
+                <tr>
+                    <th className="border border-black">Total</th>
+
+                    {hourly_totals(stands).map(hour => <th key={hour} className="border border-black px-2">{hour}</th>)}
+
+                    <th className="border border-black">{hourly_totals(stands).reduce((a,b) => a + b,0)}</th>
+                </tr>
+            </tfoot>
         </table>
     );
 }
